@@ -23,12 +23,13 @@
     <main class="main">
       <button class="btn-of-add">add book +</button>
       <div class="grid">
-        <!-- <div class="box">ido</div>
-        <div class="box">ido</div>
-        <div class="box">ido</div>
-        <div class="box">ido</div>
-        <div class="box">ido</div>
-        <div class="box">ido</div> -->
+        <div class="box">
+          <p class="name">"ido"</p>
+          <p class="author">ido</p>
+          <p class="number">500</p>
+          <button class="read-or-not">read</button>
+          <button class="remove-box">remove</button>
+        </div>
       </div>
     </main>
 
@@ -44,21 +45,38 @@
     </footer>
 
     <div class="popup">
-      <div class="box">
-        <h1 class="head-of-box" >Add new book</h1>
+      <div class="box-of-popup">
+        <h1 class="head-of-box">Add new book</h1>
         <!-- <form class="add-book-form"> -->
-          <div class="box-input">
-            <input class="input" type="text" placeholder="Book name" required maxlength="30" />
-          <input class="input" type="text" placeholder="Author" required maxlength="30" />
-          <input class="input" type="number" placeholder="Number of pages" required />
-          </div>
-          
-          <div class="check-read">
-            <label for="checkbox">Have you read it?</label>
-            <input class="checkbox" type="checkbox" />
-          </div>
-          <button class="submit">Submit</button>
-          <button class="close">x</button>
+        <div class="box-input">
+          <input
+            class="input"
+            type="text"
+            placeholder="Book name"
+            required
+            maxlength="30"
+          />
+          <input
+            class="input"
+            type="text"
+            placeholder="Author"
+            required
+            maxlength="30"
+          />
+          <input
+            class="input"
+            type="number"
+            placeholder="Number of pages"
+            required
+          />
+        </div>
+
+        <div class="check-read">
+          <label for="checkbox">Have you read it?</label>
+          <input class="checkbox" type="checkbox" />
+        </div>
+        <button class="submit">Submit</button>
+        <button class="close">x</button>
         <!-- </form> -->
       </div>
     </div>
