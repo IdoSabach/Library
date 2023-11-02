@@ -8,11 +8,12 @@
 }
 
 body{
+  font-family: 'Rubik', sans-serif;
+  background-color: #dee2e6;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  font-family: 'Rubik', sans-serif;
+  justify-content: space-between;
 }
 
 .header{
@@ -20,8 +21,7 @@ body{
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-  background-color: white;
-  max-width: 1440px;
+  background-color: white; 
   width: 100%;
 }
 
@@ -39,3 +39,40 @@ body{
   cursor: pointer;
   background-color: rgb(216, 216, 216);
 }
+
+.main{
+  padding-top: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-of-add{
+  font-size: 36px;
+  padding: 15px;
+  border-radius: 10px;
+  border-style: none;
+  margin-bottom: 30px;
+  font-weight: 600;
+  background: none;
+}
+
+.btn-of-add:hover{
+  cursor: pointer;
+  background-color: #adb5bd;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 5px;
+}
+
