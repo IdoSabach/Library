@@ -5,6 +5,12 @@ function Book(name,author,number){
   this.author = author
   this.number = number
 }
+function addBookToArr(name,author,number){
+  const book = new Book(name,author,number)
+  myLibrary.push(book)
+  console.log(book.name , book.author , book.number)
+  console.log(myLibrary)
+}
 
 
 const addBook = document.querySelector('.btn-of-add')
@@ -18,6 +24,7 @@ const authorInput = document.getElementById('author')
 const numberInput = document.getElementById('number')
 
 const readBtnOnFun = document.createElement('button')
+const removeBtnOnFun = document.createElement('button')
 
 readBtnOnFun.addEventListener('click',function(){
   if(readBtnOnFun.style.backgroundColor='#7ae582'){
@@ -26,9 +33,6 @@ readBtnOnFun.addEventListener('click',function(){
   }
 })
 
-
-
-const removeBtnOnFun = document.createElement('button')
 
 addBook.addEventListener('click',function(){
   popup.style.display = 'flex'
@@ -39,6 +43,7 @@ close.addEventListener('click',function(){
 })
 
 submit.addEventListener('click',addBookToLibrary);
+
 
 function addBookToLibrary(){
   //create parent grid
