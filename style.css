@@ -146,7 +146,7 @@ body{
 .submit:hover{
   opacity: 1.5;
   cursor: pointer;
-  background-color: #70d377;
+  background-color: #70d377;  
 }
 
 
@@ -161,7 +161,7 @@ body{
 }
 
 .close{
-  border-style: solid;
+  border-style: none;
   width: 30px;
   height: 30px;
   border-radius: 50%;
