@@ -5,12 +5,51 @@ function Book(name,author,number){
   this.author = author
   this.number = number
 }
-function addBookToArr(name,author,number){
-  const book = new Book(name,author,number)
+function addBookToArr(){
+  const book = new Book(nameInput.value,authorInput.value,numberInput.value)
   myLibrary.push(book)
   console.log(book.name , book.author , book.number)
   console.log(myLibrary)
+
+  //create parent grid
+  const box = document.createElement('div')
+  box.className = 'box'
+  grid.appendChild(box)
+
+  //create name
+  const name = document.createElement('p')
+  name.className = 'name'
+  name.textContent = book.name
+  box.appendChild(name)
+
+  //create author
+  const author = document.createElement('p')
+  author.className = 'author'
+  author.textContent = book.author
+  box.appendChild(author)
+
+  //create number
+  const number = document.createElement('p')
+  number.className = 'number'
+  number.textContent = book.number
+  box.appendChild(number)
+
+  //create btn read
+  readBtnOnFun.className = 'read-or-not'
+  readBtnOnFun.textContent = 'Read'
+  box.appendChild(readBtnOnFun)
+
+  //create btn remove
+  removeBtnOnFun.className = 'remove-box'
+  removeBtnOnFun.textContent = 'Remove'
+  box.appendChild(removeBtnOnFun)
+  //close box
+  popup.style.display = 'none'
 }
+
+
+
+
 
 
 const addBook = document.querySelector('.btn-of-add')
@@ -42,38 +81,38 @@ close.addEventListener('click',function(){
   popup.style.display = 'none'
 })
 
-submit.addEventListener('click',addBookToLibrary);
+submit.addEventListener('click',addBookToArr);
 
 
-function addBookToLibrary(){
-  //create parent grid
-  const box = document.createElement('div')
-  box.className = 'box'
-  grid.appendChild(box)
-  //create name
-  const name = document.createElement('p')
-  name.className = 'name'
-  name.textContent = nameInput.value
-  box.appendChild(name)
-  //create name
-  const author = document.createElement('p')
-  author.className = 'author'
-  author.textContent = authorInput.value
-  box.appendChild(author)
-  //create name
-  const number = document.createElement('p')
-  number.className = 'number'
-  number.textContent = numberInput.value
-  box.appendChild(number)
-  //create btn read
-  readBtnOnFun.className = 'read-or-not'
-  readBtnOnFun.textContent = 'Read'
-  box.appendChild(readBtnOnFun)
-  //create btn remove
-  removeBtnOnFun.className = 'remove-box'
-  removeBtnOnFun.textContent = 'Remove'
-  box.appendChild(removeBtnOnFun)
-  //close box
-  popup.style.display = 'none'
-}
+// function addBookToLibrary(){
+//   //create parent grid
+//   const box = document.createElement('div')
+//   box.className = 'box'
+//   grid.appendChild(box)
+//   //create name
+//   const name = document.createElement('p')
+//   name.className = 'name'
+//   name.textContent = nameInput.value
+//   box.appendChild(name)
+//   //create name
+//   const author = document.createElement('p')
+//   author.className = 'author'
+//   author.textContent = authorInput.value
+//   box.appendChild(author)
+//   //create name
+//   const number = document.createElement('p')
+//   number.className = 'number'
+//   number.textContent = numberInput.value
+//   box.appendChild(number)
+//   //create btn read
+//   readBtnOnFun.className = 'read-or-not'
+//   readBtnOnFun.textContent = 'Read'
+//   box.appendChild(readBtnOnFun)
+//   //create btn remove
+//   removeBtnOnFun.className = 'remove-box'
+//   removeBtnOnFun.textContent = 'Remove'
+//   box.appendChild(removeBtnOnFun)
+//   //close box
+//   popup.style.display = 'none'
+// }
 
