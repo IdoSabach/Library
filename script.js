@@ -50,9 +50,17 @@ function addBookToArr() {
     removeBtnOnFun.className = "remove-box";
     removeBtnOnFun.textContent = "Remove";
     box.appendChild(removeBtnOnFun);
+
     removeBtnOnFun.addEventListener('click',function(){
       grid.removeChild(box)
     })
+
+    const checkbox = document.querySelector('.checkbox')
+    checkbox.addEventListener('change', function() {
+      if (!checkbox.checked) {
+          readBtnOnFun.style.backgroundColor = '#ff8fab'
+      }
+  });
 
     console.log(book.name, book.author, book.number);
     console.log(myLibrary);
@@ -60,8 +68,7 @@ function addBookToArr() {
     nameInput.value = "";
     authorInput.value = "";
     numberInput.value = "";
-
-    
+    // checkbox.checked = false
 
     popup.style.display = "none";
   }
@@ -91,3 +98,7 @@ close.addEventListener("click", function () {
 // });
 
 submit.addEventListener("click", addBookToArr);
+
+function checkReadOrNot(){
+  
+}
