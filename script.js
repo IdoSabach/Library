@@ -1,6 +1,9 @@
 const myLibrary = [];
 
+let bookId = 0
+
 function Book(name, author, number,readOrNot) {
+  this.id = bookId++
   this.name = name;
   this.author = author;
   this.number = number;
@@ -18,6 +21,7 @@ function addBookToArr() {
 
     const book = new Book(nameInput.value, authorInput.value, numberInput.value,readOrNot.checked);
     myLibrary.push(book);
+    // console.log(myLibrary)
     //create parent grid
     const box = document.createElement("div");
     box.className = "box";
@@ -53,9 +57,20 @@ function addBookToArr() {
     removeBtnOnFun.textContent = "Remove";
     box.appendChild(removeBtnOnFun);
 
-    removeBtnOnFun.addEventListener('click',function(){
-      grid.removeChild(box)
-    })
+
+    removeBtnOnFun.setAttribute('data-book-id', book.id);
+
+    removeBtnOnFun.addEventListener('click', function(e) {
+      const bookIdToRemove = parseInt(e.target.getAttribute('data-book-id'), 10);
+      const bookIndex = myLibrary.findIndex(book => book.id === bookIdToRemove);
+
+      if (bookIndex !== -1) {
+        grid.removeChild(box);
+        myLibrary.splice(bookIndex, 1); 
+      }
+    });
+
+
 
     readOrNot.addEventListener('change', function() {
       if (!readOrNot.checked) {
@@ -96,11 +111,11 @@ close.addEventListener("click", function () {
   popup.style.display = "none";
 });
 
-// submit.addEventListener('click',function(event){
-//   event.preventDefault()
-//   addBookToArr();
-// });
+submit.addEventListener('click',function(event){
+  event.preventDefault()
+  addBookToArr();
+});
 
-submit.addEventListener("click", addBookToArr);
+// submit.addEventListener("click", addBookToArr);
 
 
