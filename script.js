@@ -54,6 +54,10 @@ function addBookToArr() {
     readBtnOnFun.textContent = "Read";
     box.appendChild(readBtnOnFun);
 
+    // if(readOrNot.checked===false){
+    //   readBtnOnFun.style.backgroundColor = "#ff8fab";
+    // }
+
     readOrNot.addEventListener("change", function () {
       if (!readOrNot.checked) {
         readBtnOnFun.style.backgroundColor = "#ff8fab";
@@ -109,6 +113,17 @@ const nameInput = document.getElementById("name");
 const authorInput = document.getElementById("author");
 const numberInput = document.getElementById("number");
 const readOrNot = document.querySelector(".checkbox");
+const form = document.querySelector('.add-book-form')
+
+form.addEventListener('submit' , (e)=>{
+  e.preventDefault()
+  const formDate = new FormData(form);
+
+  for(item of formDate){
+    console.log(item[0],item[1])
+  }
+  addBookToArr();
+})
 
 addBook.addEventListener("click", function () {
   popup.style.display = "flex";
@@ -118,9 +133,9 @@ close.addEventListener("click", function () {
   popup.style.display = "none";
 });
 
-submit.addEventListener("click", function (event) {
-  event.preventDefault();
-  addBookToArr();
-});
+// submit.addEventListener("click", function (event) {
+//   event.preventDefault();
+//   addBookToArr();
+// });
 
 // submit.addEventListener("click", addBookToArr);

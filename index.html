@@ -32,7 +32,6 @@
         </div> -->
       </div>
     </main>
-    
 
     <footer class="footer">
       Built by Ido Sabach
@@ -49,8 +48,9 @@
       <div class="box-of-popup">
         <h1 class="head-of-box">Add new book</h1>
         <button class="close">x</button>
-        <form class="add-book-form"  >
+        <form class="add-book-form" >
           <div class="box-input">
+            <label for="text"></label>
             <input
               class="input"
               id="name"
@@ -60,6 +60,7 @@
               required
               maxlength="30"
             />
+            <label for="text"></label>
             <input
               class="input"
               id="author"
@@ -69,6 +70,7 @@
               required
               maxlength="30"
             />
+            <label for="number"></label>
             <input
               class="input"
               id="number"
@@ -83,13 +85,11 @@
             <label for="checkbox">Have you read it?</label>
             <input class="checkbox" type="checkbox" />
           </div>
-          <!-- <button class="submit">Submit</button> -->
-          <input  class="submit" type="submit">
+          <button type="submit" class="submit">Submit</button>
+          <!-- <input class="submit" type="submit" /> -->
         </form>
       </div>
     </div>
-
-    
 
     <script src="script.js"></script>
   </body>
