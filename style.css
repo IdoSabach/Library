@@ -228,4 +228,8 @@ body{
     column-gap: 30px;
     /* max-width: 1440px; */
   }
+
+  .log-in.btn-of-add.close.checkbox.submit{
+    color: black;
+  }
 }
