@@ -9,121 +9,80 @@ function Book(name, author, number, readOrNot) {
   this.number = number;
   this.readOrNot = readOrNot;
 }
-function addBookToArr() {
-  if (
-    nameInput.value === "" ||
-    authorInput.value === "" ||
-    numberInput.value === ""
-  ) {
-    return;
-  } else {
-    const book = new Book(
-      nameInput.value,
-      authorInput.value,
-      numberInput.value,
-      readOrNot.checked
-    );
-    myLibrary.push(book);
-    // console.log(myLibrary)
-    //create parent grid
-    const box = document.createElement("div");
-    box.className = "box";
-    grid.appendChild(box);
 
-    //create name
-    const name = document.createElement("p");
-    name.className = "name";
-    name.textContent = book.name;
-    box.appendChild(name);
+function createBoxBook(book) {
+  const box = document.createElement("div");
+  box.className = "box";
 
-    //create author
-    const author = document.createElement("p");
-    author.className = "author";
-    author.textContent = book.author;
-    box.appendChild(author);
+  const name = document.createElement("p");
+  name.className = "name";
+  name.textContent = book.name;
+  box.appendChild(name);
 
-    //create number
-    const number = document.createElement("p");
-    number.className = "number";
-    number.textContent = book.number;
-    box.appendChild(number);
+  const author = document.createElement("p");
+  author.className = "author";
+  author.textContent = book.author;
+  box.appendChild(author);
 
-    //create btn read
-    const readBtnOnFun = document.createElement("button");
-    readBtnOnFun.className = "read-or-not";
-    readBtnOnFun.textContent = "Read";
-    box.appendChild(readBtnOnFun);
+  const number = document.createElement("p");
+  number.className = "number";
+  number.textContent = book.number;
+  box.appendChild(number);
 
-    // if(readOrNot.checked===false){
-    //   readBtnOnFun.style.backgroundColor = "#ff8fab";
-    // }
+  const readBtnOnFun = document.createElement("button");
+  readBtnOnFun.className = "read-or-not";
+  readBtnOnFun.textContent = "Read";
+  box.appendChild(readBtnOnFun);
 
-    readOrNot.addEventListener("change", function () {
-      if (!readOrNot.checked) {
-        readBtnOnFun.style.backgroundColor = "#ff8fab";
-      } else {
-        readBtnOnFun.style.backgroundColor = "#7ae582";
-      }
-    });
+  const removeBtnOnFun = document.createElement("button");
+  removeBtnOnFun.className = "remove-box";
+  removeBtnOnFun.textContent = "Remove";
+  box.appendChild(removeBtnOnFun);
 
-    //create btn remove
-    const removeBtnOnFun = document.createElement("button");
-    removeBtnOnFun.className = "remove-box";
-    removeBtnOnFun.textContent = "Remove";
-    box.appendChild(removeBtnOnFun);
+  removeBtnOnFun.setAttribute("data-book-id", book.id);
 
-    removeBtnOnFun.setAttribute("data-book-id", book.id);
+  removeBtnOnFun.addEventListener("click", function (e) {
+    const bookIdToRemove = parseInt(e.target.getAttribute("data-book-id"), 10);
+    const bookIndex = myLibrary.findIndex((book) => book.id === bookIdToRemove);
 
-    removeBtnOnFun.addEventListener("click", function (e) {
-      const bookIdToRemove = parseInt(
-        e.target.getAttribute("data-book-id"),
-        10
-      );
-      const bookIndex = myLibrary.findIndex(
-        (book) => book.id === bookIdToRemove
-      );
+    if (bookIndex !== -1) {
+      grid.removeChild(box);
+      myLibrary.splice(bookIndex, 1);
+    }
+  });
 
-      if (bookIndex !== -1) {
-        grid.removeChild(box);
-        myLibrary.splice(bookIndex, 1);
-        // console.log(book.id)
-        // console.log(bookId)
-      }
-    });
+  return box;
+}
 
-    console.log(book.name, book.author, book.number);
-    console.log(myLibrary);
-
-    nameInput.value = "";
-    authorInput.value = "";
-    numberInput.value = "";
-    readOrNot.checked = false;
-
-    popup.style.display = "none";
-  }
+function addBookToArr(book) {
+  myLibrary.push(book);
+  const bookElement = createBoxBook(book);
+  grid.appendChild(bookElement);
+  console.log(myLibrary)
 }
 
 const addBook = document.querySelector(".btn-of-add");
 const popup = document.querySelector(".popup");
 const close = document.querySelector(".close");
-const submit = document.querySelector(".submit");
 const grid = document.querySelector(".grid");
-// const form = document.querySelector('.add-book-form').reset()
-const nameInput = document.getElementById("name");
-const authorInput = document.getElementById("author");
-const numberInput = document.getElementById("number");
-const readOrNot = document.querySelector(".checkbox");
-const form = document.querySelector('.add-book-form')
+const form = document.querySelector(".add-book-form");
+const checkbox = document.querySelector('.checkbox')
 
-form.addEventListener('submit' , (e)=>{
-  e.preventDefault()
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
   const formDate = new FormData(form);
 
-  // for(item of formDate){
-  //   console.log(item[0],item[1])
-  // }
-  addBookToArr();
-})
+  const book = new Book(
+    formDate.get("name"),
+    formDate.get("author"),
+    formDate.get("number"),
+    checkbox.checked
+  );
+
+  addBookToArr(book);
+  form.reset();
+  popup.style.display = "none";
+});
 
 addBook.addEventListener("click", function () {
   popup.style.display = "flex";
@@ -133,9 +92,6 @@ close.addEventListener("click", function () {
   popup.style.display = "none";
 });
 
-// submit.addEventListener("click", function (event) {
-//   event.preventDefault();
-//   addBookToArr();
-// });
 
-// submit.addEventListener("click", addBookToArr);
+
+
