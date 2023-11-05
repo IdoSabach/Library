@@ -1,16 +1,15 @@
 const myLibrary = [];
 
-let bookId = 0
+let bookId = 0;
 
-function Book(name, author, number,readOrNot) {
-  this.id = bookId++
+function Book(name, author, number, readOrNot) {
+  this.id = bookId++;
   this.name = name;
   this.author = author;
   this.number = number;
   this.readOrNot = readOrNot;
 }
 function addBookToArr() {
-
   if (
     nameInput.value === "" ||
     authorInput.value === "" ||
@@ -18,8 +17,12 @@ function addBookToArr() {
   ) {
     return;
   } else {
-
-    const book = new Book(nameInput.value, authorInput.value, numberInput.value,readOrNot.checked);
+    const book = new Book(
+      nameInput.value,
+      authorInput.value,
+      numberInput.value,
+      readOrNot.checked
+    );
     myLibrary.push(book);
     // console.log(myLibrary)
     //create parent grid
@@ -51,13 +54,13 @@ function addBookToArr() {
     readBtnOnFun.textContent = "Read";
     box.appendChild(readBtnOnFun);
 
-    readOrNot.addEventListener('change', function() {
+    readOrNot.addEventListener("change", function () {
       if (!readOrNot.checked) {
-        readBtnOnFun.style.backgroundColor = '#ff8fab'
+        readBtnOnFun.style.backgroundColor = "#ff8fab";
       } else {
-        readBtnOnFun.style.backgroundColor = '#7ae582';
-    }
-  });
+        readBtnOnFun.style.backgroundColor = "#7ae582";
+      }
+    });
 
     //create btn remove
     const removeBtnOnFun = document.createElement("button");
@@ -65,22 +68,24 @@ function addBookToArr() {
     removeBtnOnFun.textContent = "Remove";
     box.appendChild(removeBtnOnFun);
 
+    removeBtnOnFun.setAttribute("data-book-id", book.id);
 
-    removeBtnOnFun.setAttribute('data-book-id', book.id);
-
-    removeBtnOnFun.addEventListener('click', function(e) {
-      const bookIdToRemove = parseInt(e.target.getAttribute('data-book-id'), 10);
-      const bookIndex = myLibrary.findIndex(book => book.id === bookIdToRemove);
+    removeBtnOnFun.addEventListener("click", function (e) {
+      const bookIdToRemove = parseInt(
+        e.target.getAttribute("data-book-id"),
+        10
+      );
+      const bookIndex = myLibrary.findIndex(
+        (book) => book.id === bookIdToRemove
+      );
 
       if (bookIndex !== -1) {
         grid.removeChild(box);
-        myLibrary.splice(bookIndex, 1); 
+        myLibrary.splice(bookIndex, 1);
         // console.log(book.id)
         // console.log(bookId)
       }
     });
-
-
 
     console.log(book.name, book.author, book.number);
     console.log(myLibrary);
@@ -103,7 +108,7 @@ const grid = document.querySelector(".grid");
 const nameInput = document.getElementById("name");
 const authorInput = document.getElementById("author");
 const numberInput = document.getElementById("number");
-const readOrNot = document.querySelector('.checkbox')
+const readOrNot = document.querySelector(".checkbox");
 
 addBook.addEventListener("click", function () {
   popup.style.display = "flex";
@@ -113,11 +118,9 @@ close.addEventListener("click", function () {
   popup.style.display = "none";
 });
 
-submit.addEventListener('click',function(event){
-  event.preventDefault()
+submit.addEventListener("click", function (event) {
+  event.preventDefault();
   addBookToArr();
 });
 
 // submit.addEventListener("click", addBookToArr);
-
-
