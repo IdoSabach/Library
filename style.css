@@ -6,15 +6,16 @@
   box-sizing: border-box;
   /* outline:  1px solid red; */
 }
+html{
+  height: 100%;
+}
 
 body{
   font-family: 'Rubik', sans-serif;
   background-color: #dee2e6;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
+  min-height: 100%;
 }
 
 .header{
@@ -47,9 +48,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   padding-bottom: 50px;
-  height: 820px;
 }
 
 .btn-of-add{
@@ -69,8 +68,8 @@ body{
 }
 
 .footer{
-  position: absolute;
-  bottom: 0;
+  margin-top: auto;
+  text-align: center;
 }
 
 
@@ -226,7 +225,6 @@ body{
     grid-template-columns: repeat(1,1fr);
     row-gap: 30px;
     column-gap: 30px;
-    /* max-width: 1440px; */
   }
 
   .log-in.btn-of-add.close.checkbox.submit{
