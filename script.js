@@ -32,7 +32,16 @@ function createBoxBook(book) {
   const readBtnOnFun = document.createElement("button");
   readBtnOnFun.className = "read-or-not";
   readBtnOnFun.textContent = "Read";
+  // readBtnOnFun.classList.add('readBtn')    
   box.appendChild(readBtnOnFun);
+
+    if(book.readOrNot===false) {
+      readBtnOnFun.textContent = 'Not Read';
+      readBtnOnFun.style.backgroundColor = '#e04f63';
+    }else {
+      readBtnOnFun.textContent = 'Read';
+      readBtnOnFun.style.backgroundColor = '#63da63'
+    }
 
   const removeBtnOnFun = document.createElement("button");
   removeBtnOnFun.className = "remove-box";
