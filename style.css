@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* outline:  1px solid red; */
+  outline:  1px solid red;
 }
 
 body{
@@ -116,6 +116,12 @@ body{
   background-color: #e9ecef;
   border-style: none;
   position: relative;
+}
+
+.add-book-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .head-of-box{
