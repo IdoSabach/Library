@@ -50,6 +50,17 @@ function addBookToArr() {
     readBtnOnFun.className = "read-or-not";
     readBtnOnFun.textContent = "Read";
     box.appendChild(readBtnOnFun);
+    
+    readBtnOnFun.addEventListener('click',function(e){
+      if(readBtnOnFun.style.backgroundColor==='#7ae582'||
+         readBtnOnFun.style.backgroundColor==='#70d377'){
+          e.target.style.background='red'
+          e.target.textContent = 'Not read'
+         }else{
+          e.target.style.backgroundColor='#7ae582'
+          e.target.textContent = 'Read'
+         }
+    })
 
     //create btn remove
     const removeBtnOnFun = document.createElement("button");
