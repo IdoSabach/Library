@@ -1,13 +1,12 @@
 const myLibrary = [];
 
-function Book(name, author, number) {
+function Book(name, author, number,readOrNot) {
   this.name = name;
   this.author = author;
   this.number = number;
+  this.readOrNot = readOrNot;
 }
 function addBookToArr() {
-  const book = new Book(nameInput.value, authorInput.value, numberInput.value);
-  myLibrary.push(book);
 
   if (
     nameInput.value === "" ||
@@ -16,6 +15,9 @@ function addBookToArr() {
   ) {
     return;
   } else {
+
+    const book = new Book(nameInput.value, authorInput.value, numberInput.value,readOrNot.checked);
+    myLibrary.push(book);
     //create parent grid
     const box = document.createElement("div");
     box.className = "box";
@@ -55,11 +57,12 @@ function addBookToArr() {
       grid.removeChild(box)
     })
 
-    const checkbox = document.querySelector('.checkbox')
-    checkbox.addEventListener('change', function() {
-      if (!checkbox.checked) {
-          readBtnOnFun.style.backgroundColor = '#ff8fab'
-      }
+    readOrNot.addEventListener('change', function() {
+      if (!readOrNot.checked) {
+        readBtnOnFun.style.backgroundColor = '#ff8fab'
+      } else {
+        readBtnOnFun.style.backgroundColor = '#7ae582';
+    }
   });
 
     console.log(book.name, book.author, book.number);
@@ -68,7 +71,7 @@ function addBookToArr() {
     nameInput.value = "";
     authorInput.value = "";
     numberInput.value = "";
-    // checkbox.checked = false
+    readOrNot.checked = false;
 
     popup.style.display = "none";
   }
@@ -83,6 +86,7 @@ const grid = document.querySelector(".grid");
 const nameInput = document.getElementById("name");
 const authorInput = document.getElementById("author");
 const numberInput = document.getElementById("number");
+const readOrNot = document.querySelector('.checkbox')
 
 addBook.addEventListener("click", function () {
   popup.style.display = "flex";
@@ -99,6 +103,4 @@ close.addEventListener("click", function () {
 
 submit.addEventListener("click", addBookToArr);
 
-function checkReadOrNot(){
-  
-}
+

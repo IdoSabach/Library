@@ -32,6 +32,7 @@
         </div> -->
       </div>
     </main>
+    
 
     <footer class="footer">
       Built by Ido Sabach
@@ -48,13 +49,14 @@
       <div class="box-of-popup">
         <h1 class="head-of-box">Add new book</h1>
         <button class="close">x</button>
-        <form class="add-book-form" >
+        <form class="add-book-form"  >
           <div class="box-input">
             <input
               class="input"
               id="name"
               type="text"
               placeholder="Book name"
+              name="text"
               required
               maxlength="30"
             />
@@ -63,6 +65,7 @@
               id="author"
               type="text"
               placeholder="Author"
+              name="text"
               required
               maxlength="30"
             />
@@ -71,6 +74,7 @@
               id="number"
               type="number"
               placeholder="Number of pages"
+              name="number"
               required
             />
           </div>
@@ -84,6 +88,8 @@
         </form>
       </div>
     </div>
+
+    
 
     <script src="script.js"></script>
   </body>
