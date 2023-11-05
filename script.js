@@ -119,9 +119,9 @@ form.addEventListener('submit' , (e)=>{
   e.preventDefault()
   const formDate = new FormData(form);
 
-  for(item of formDate){
-    console.log(item[0],item[1])
-  }
+  // for(item of formDate){
+  //   console.log(item[0],item[1])
+  // }
   addBookToArr();
 })
 
