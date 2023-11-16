@@ -1,3 +1,6 @@
+// FACTORY FUNCTION
+function main(){
+
 const myLibrary = [];
 
 let bookId = 0;
@@ -113,3 +116,11 @@ addBook.addEventListener("click", function () {
 close.addEventListener("click", function () {
   popup.style.display = "none";
 });
+
+
+}
+
+//IIFE
+const runMain = (function(){
+  main()
+})()
